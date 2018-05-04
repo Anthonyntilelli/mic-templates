@@ -1,3 +1,6 @@
+#!/bin/bash
+
+#install docker on debian
 sudo apt-get update
 sudo apt-get install \
      apt-transport-https \
@@ -14,6 +17,11 @@ sudo add-apt-repository \
    stable"
 
 sudo apt-get update
-sudo apt-get install docker-ce
+sudo apt-get install docker-ce -y
 
-
+# Install the 64 bit Relay CLI utility (change curl link for 32 bit version)
+# sudo apt-get update && sudo apt-get install -y curl
+curl -L -o relay https://gitlab.com/norad/relay-cli/-/jobs/artifacts/master/raw/build/relay?job=build_linux_amd64
+sudo chown root:root relay
+sudo chmod 770 relay
+sudo mv relay /usr/local/bin/relay
