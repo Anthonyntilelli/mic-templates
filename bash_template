@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+################ Script metadata ###############################################
+#: Title        : 
+#: Author       : Anthony Tilelli
+#: Description  : 
+#: Requirements : BASH 4.0+
+#: Options      :
+#: Version      : Major.minor.patch (https://semver.org/)
+#: ExitCodes    : (reserved https://www.tldp.org/LDP/abs/html/exitcodes.html)
+#:              : 0 "Success"
+#:              : 1 General Failure (varied message)
+#:              : 3 Bash-4.0+ is required to run this script
+################ Script metadata ###############################################
+#strict mode (http://redsymbol.net/articles/unofficial-bash-strict-mode/)
+set -euo pipefail
+#IFS=$'\n\t'
+
+#Function
+function die() {
+  #@ DESCRIPTION:  prints error-message and exits script
+  #@ USAGE:  die ERRORCODE ERROR_MESSAGE or die
+  #@ REQUIRMENTS: NONE
+
+  local -r ERRORCODE="${1:-1}"
+  local -r ERROR_MESSAGE="${2:-"No \"ERROR_MESSAGE\" provided"}"
+  local -r TIMESTAMP="$(date)"
+  printf "ERROR %d: %s: %s\\n" "$ERRORCODE" "$TIMESTAMP" "$ERROR_MESSAGE" >&2
+  exit "$ERRORCODE"
+}
+
+function output() {
+  #@ DESCRIPTION:  prints message
+  #@ USAGE:  output <MESSAGE>
+  #@ REQUIREMENTS: NONE
+
+  local -r MESSAGE="${1:-"No \"MESSAGE\" provided"}"
+  local -r TIMESTAMP="$(date)"
+  printf "%s: (%s)\\n" "$MESSAGE" "$TIMESTAMP" 
+  return
+}
+
+if ((BASH_VERSINFO[0] > 4))
+then
+  fail 3 "Bash-4.0+ is required to run this script"
+fi
+ 
+# <-- Main Code Here -- >
+exit 0
