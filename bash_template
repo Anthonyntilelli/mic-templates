@@ -32,7 +32,7 @@ fi
 function die() {
   #@ DESCRIPTION:  prints error-message and exits script
   #@ USAGE:  die ERRORCODE ERROR_MESSAGE or die
-  #@ REQUIRMENTS: NONE
+  #@ REQUIREMENTS: NONE
 
   local -r ERRORCODE="${1:-1}"
   local -r ERROR_MESSAGE="${2:-"No \"ERROR_MESSAGE\" provided"}"
