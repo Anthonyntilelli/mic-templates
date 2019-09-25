@@ -1,16 +1,20 @@
 <#
-  .DESCRIPTION
-   <--DESCRIPTION HERE-->
-  
-  .PARAMETER exampleA
+
+.SYNOPSIS
+    <--SYNOPSIS HERE-->
+
+.DESCRIPTION
+    <--DESCRIPTION HERE-->
+
+.PARAMETER exampleA
     Optional
     Example of an Optional Parameter. 
 
-  .PARAMETER exampleB
+.PARAMETER exampleB
     Mandatory
     Example of an Mandatory Parameter. 
    
-  .NOTES
+.NOTES
     Author:
     LASTEDIT:
 #> 
