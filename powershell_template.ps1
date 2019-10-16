@@ -21,14 +21,15 @@
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version 3
 
+# <-- Functions here-->
+
+
+# <-- Main Code Here -- >
 Param (
     [Parameter(Mandatory=$false)] [string] $exampleA = "Default",
     [Parameter(Mandatory=$true)]  [string] $exampleB
 )
 
-# <-- User Functions here-->
 
-
-# <-- Main Code Here -- >
 
 exit
