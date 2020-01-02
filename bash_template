@@ -41,6 +41,7 @@ function die() {
   local -r ERROR_MESSAGE="${2:-"No \"ERROR_MESSAGE\" provided"}"
   local -r TIMESTAMP="$(date)"
   printf "FATAL %d: %s: %s\\n" "$ERRORCODE" "$TIMESTAMP" "$ERROR_MESSAGE" >&2
+  printf "FATAL %d: %s: %s\\n" "$ERRORCODE" "$TIMESTAMP" "$ERROR_MESSAGE >> "$GL_LOG"
   exit "$ERRORCODE"
 }
 
@@ -63,7 +64,7 @@ function warn() {
   local -r MESSAGE="${1:-"No \"MESSAGE\" provided"}"
   local -r TIMESTAMP="$(date)"
   printf "WARNING: %s (%s)\\n" "$MESSAGE" "$TIMESTAMP" >&2
-  printf "WARNING: %s (%s)\\n" "$MESSAGE" "$TIMESTAMP" >> "$GL_Backup_Status"
+  printf "WARNING: %s (%s)\\n" "$MESSAGE" "$TIMESTAMP" >> "$GL_LOG"
   return 0
 
 }
@@ -72,5 +73,5 @@ function warn() {
 
 
 # <-- Main Code Here -- >
-mai "$@"
+main "$@"
 exit 0
