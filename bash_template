@@ -41,7 +41,7 @@ function die() {
   local -r ERROR_MESSAGE="${2:-"No \"ERROR_MESSAGE\" provided"}"
   local -r TIMESTAMP="$(date)"
   printf "FATAL %d: %s: %s\\n" "$ERRORCODE" "$TIMESTAMP" "$ERROR_MESSAGE" >&2
-  printf "FATAL %d: %s: %s\\n" "$ERRORCODE" "$TIMESTAMP" "$ERROR_MESSAGE >> "$GL_LOG"
+  printf "FATAL %d: %s: %s\\n" "$ERRORCODE" "$TIMESTAMP" "$ERROR_MESSAGE" >> "$GL_LOG"
   exit "$ERRORCODE"
 }
 
