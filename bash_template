@@ -69,6 +69,26 @@ function warn() {
 
 }
 
+function trim()
+{
+  #@ SOURCE: https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
+  #@ DESCRIPTION:  Removes leading and trailling spaces
+  #@ USAGE:  trim <string>
+  #@ REQUIREMENTS: NONE
+
+  local trimmed="$1"
+
+  # Strip leading spaces.
+  while [[ $trimmed == ' '* ]]; do
+      trimmed="${trimmed## }"
+  done
+  # Strip trailing spaces.
+  while [[ $trimmed == *' ' ]]; do
+      trimmed="${trimmed%% }"
+  done
+
+  echo "$trimmed"
+}
 # <-- User Functions here-->
 
 
