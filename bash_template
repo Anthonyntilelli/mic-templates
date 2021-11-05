@@ -89,6 +89,19 @@ function trim()
 
   echo "$trimmed"
 }
+
+function cli_check() {
+  #@ DESCRIPTION:  Check if needed CLI commands are in place.
+  #@ USAGE:  tool_check
+  #@ REQUIREMENTS: NONE
+
+  if ! command -v ls &> /dev/null
+  then
+    die 4 "<command> is missing, Install it please, and then run this tool again."
+  fi
+
+  return 0
+}
 # <-- User Functions here-->
 
 
